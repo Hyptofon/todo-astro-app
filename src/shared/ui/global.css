@@ -1,5 +1,67 @@
 @import "tailwindcss";
 
+:root {
+    --theme-base: #2563eb;
+    --theme-contrast-text: #ffffff;
+    --theme-primary: var(--theme-base);
+    --theme-bg: color-mix(in srgb, var(--theme-base), white 92%);
+    --theme-surface: color-mix(in srgb, var(--theme-base), white 96%);
+    --theme-border: color-mix(in srgb, var(--theme-base), white 60%);
+    --theme-text-main: color-mix(in srgb, var(--theme-base), black 70%);
+    --theme-text-muted: color-mix(in srgb, var(--theme-base), gray 40%);
+}
+
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--theme-bg);
+    color: var(--theme-text-main);
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Тексти */
+.text-slate-800, .text-gray-800, .text-gray-700 { color: var(--theme-text-main) !important; }
+.text-slate-500, .text-gray-500, .text-gray-400 { color: var(--theme-text-muted) !important; }
+
+/* Акцентний текст */
+.text-blue-600, .text-blue-700, .text-blue-500 { color: var(--theme-primary) !important; }
+
+/* Фони карток */
+.bg-white, .bg-white\/90, .bg-white\/80 {
+    background-color: var(--theme-surface) !important;
+    border-color: var(--theme-border) !important;
+}
+
+/* Кнопки (Primary) */
+.bg-blue-600 {
+    background-color: var(--theme-primary) !important;
+    color: var(--theme-contrast-text) !important;
+}
+.bg-blue-600:hover {
+    filter: brightness(110%);
+}
+
+/* Кнопки (Secondary / Icons) */
+.bg-blue-50, .hover\:bg-blue-50:hover, .hover\:bg-gray-100:hover {
+    background-color: color-mix(in srgb, var(--theme-primary), white 70%) !important;
+    color: var(--theme-primary) !important;
+}
+
+/* Інпути та Чекбокси */
+input[type="text"], select {
+    background-color: white !important;
+    border-color: var(--theme-border) !important;
+    color: var(--theme-text-main) !important;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--theme-primary) !important;
+    border-color: var(--theme-primary) !important;
+    color: var(--theme-contrast-text) !important;
+}
+
+/* Sonner */
+[data-sonner-toast] {
+    background-color: var(--theme-surface) !important;
+    border-color: var(--theme-border) !important;
+    color: var(--theme-text-main) !important;
 }

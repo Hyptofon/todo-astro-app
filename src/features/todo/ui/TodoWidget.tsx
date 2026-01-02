@@ -3,8 +3,9 @@ import { useTodos } from './useTodos';
 import { TodoItem } from './TodoItem';
 import { CreateTodo } from './CreateTodo';
 import { TodoFilters } from './TodoFilters';
-import { TodoSearch } from './TodoSearch'; // Новий імпорт
-import { TodoPagination } from './TodoPagination'; // Новий імпорт
+import { TodoSearch } from './TodoSearch';
+import { TodoPagination } from './TodoPagination';
+import { ThemePalette } from './ThemePalette';
 import { Loader2, Inbox } from 'lucide-react';
 import { Toaster } from 'sonner';
 
@@ -30,22 +31,20 @@ export const TodoWidget = () => {
 
             <div className="max-w-xl mx-auto w-full">
                 <div className="bg-white/90 backdrop-blur-xl rounded-2xl p-6 shadow-2xl border border-white/50 ring-1 ring-black/5 flex flex-col min-h-[600px]">
-
-                    {/* Header */}
-                    <header className="mb-6 text-center">
-                        <h1 className="text-3xl font-extrabold text-slate-800 tracking-tight">
+                    <header className="mb-6 flex items-center justify-between relative">
+                        <div className="w-10" />
+                        <h1 className="text-3xl font-extrabold text-slate-800 tracking-tight text-center flex-1">
                             Astro<span className="text-blue-600">Tasks</span>
                         </h1>
+                        <div className="w-10 flex justify-end">
+                            <ThemePalette />
+                        </div>
                     </header>
-
-                    {/* Controls Area */}
                     <div className="space-y-4 mb-6">
                         <CreateTodo onAdd={addTodo} isAdding={isAdding} />
                         <TodoSearch value={search.query} onChange={search.setQuery} />
                         <TodoFilters current={filter} onChange={setFilter} stats={stats} />
                     </div>
-
-                    {/* List Area - Flex grow push footer down */}
                     <div className="flex-1">
                         {loading ? (
                             <div className="flex justify-center items-center h-40 text-blue-600">
@@ -76,8 +75,6 @@ export const TodoWidget = () => {
                             </div>
                         )}
                     </div>
-
-                    {/* Footer / Pagination */}
                     {!loading && (
                         <TodoPagination
                             currentPage={pagination.currentPage}
