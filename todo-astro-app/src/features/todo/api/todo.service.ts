@@ -4,7 +4,7 @@ import type { Todo, CreateTodoDto, UpdateTodoDto } from '../domain/todo.types';
 export const TodoService = {
     // GET: Отримати список (ліміт 10 для зручності)
     getAll: async (): Promise<Todo[]> => {
-        const response = await apiClient.get<Todo[]>('/todos?_limit=10');
+        const response = await apiClient.get<Todo[]>('/todos?_limit=100');
         return response.data;
     },
 
