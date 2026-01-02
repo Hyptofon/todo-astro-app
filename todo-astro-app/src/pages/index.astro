@@ -1,0 +1,21 @@
+---
+import { TodoWidget } from '@/features/todo/ui/TodoWidget';
+import '@/shared/ui/global.css';
+---
+
+<html lang="uk">
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<meta name="viewport" content="width=device-width" />
+	<meta name="generator" content={Astro.generator} />
+	<title>Astro Todo App</title>
+</head>
+<body class="bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 min-h-screen py-10 px-4">
+
+<main>
+	<TodoWidget client:load />
+</main>
+
+</body>
+</html>
